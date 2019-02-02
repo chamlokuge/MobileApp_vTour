@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <button ion-button menuToggle>
+         <ion-icon name="menu"></ion-icon>
+     </button>
+     <ion-title>Add New Package</ion-title>
+   </ion-navbar>
+ </ion-header>
+ 
+ <ion-footer>
+     <ion-navbar color="danger">
+       <ion-title></ion-title>
+     </ion-navbar>
+ </ion-footer>
+
+
+<ion-content padding>
+
+  <form [formGroup]="form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <ion-input type="text" [(ngModel)]="sp.spname" formControlName="name" hidden></ion-input>
+
+    <ion-input type="text" [(ngModel)]="sp.spid" formControlName="name" hidden></ion-input>
+
+    <ion-list>
+      <ion-item margin-bottom>
+        <ion-label >Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" formControlName="name"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.name"  >
+          <div class="error-message" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)" style="color:red">  
+        {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item margin-bottom>
+        <ion-label >Type</ion-label>
+        <ion-input type="text" [(ngModel)]="type" formControlName="type"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.type"  >
+          <div class="error-message" *ngIf="form.get('type').hasError(validation.type) && (form.get('type').dirty || form.get('type').touched)" style="color:red">  
+        {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item margin-bottom>
+        <ion-label >Availability</ion-label>
+        <ion-input type="text" [(ngModel)]="availability" formControlName="availability"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.availability"  >
+          <div class="error-message" *ngIf="form.get('availability').hasError(validation.type) && (form.get('availability').dirty || form.get('availability').touched)" style="color:red">  
+        {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item margin-bottom>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" [(ngModel)]="description" formControlName="description"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.description"  >
+          <div class="error-message" *ngIf="form.get('description').hasError(validation.type) && (form.get('description').dirty || form.get('description').touched)" style="color:red">  
+        {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item margin-bottom>
+        <ion-label >Price</ion-label>
+        <ion-input type="email" [(ngModel)]="price" formControlName="price"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.price"  >
+          <div class="error-message" *ngIf="form.get('price').hasError(validation.type) && (form.get('price').dirty || form.get('price').touched)" style="color:red">  
+        {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <button ion-button color="primary" text-center block [disabled]="!form.valid">Save this record</button>
+      <!-- <button ion-button class="submit-btn" full type="submit" [disabled]="!Form.form.valid"> Save this Record</button> -->
+    </ion-list>
+  </form>
+
+
+</ion-content>

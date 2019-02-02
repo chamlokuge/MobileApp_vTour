@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <button ion-button menuToggle>
+         <ion-icon name="menu"></ion-icon>
+     </button>
+     <ion-title>Packages </ion-title>
+     <!-- <ion-buttons end>
+        <button  ion-button icon-only (click)="addNewClient()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-buttons> -->
+   </ion-navbar>
+ </ion-header>
+ 
+ <ion-footer>
+     <ion-navbar color="danger">
+       <ion-title></ion-title>
+     </ion-navbar>
+ </ion-footer>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let tagent of items">
+      <ion-item *ngIf="sp._id==tagent.spid">
+        <ion-avatar item-start>
+        </ion-avatar>
+        <h2>{{ tagent.name }}</h2>
+        <p>Type : {{tagent.type}}<br>Availability : {{tagent.availability}}<br>Price : {{tagent.price}}<br>Description :
+          {{tagent.discription}}</p>
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-only outline block color="energized" (click)="updateRecord(tagent)">
+                  <ion-icon name="create"></ion-icon>
+                  
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-only block color="red" (click)="deleteRecord(tagent)">
+                  <ion-icon name="trash"></ion-icon>
+                 
+                </button>
+              </ion-col>
+    </ion-row>
+    
+      </ion-item>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

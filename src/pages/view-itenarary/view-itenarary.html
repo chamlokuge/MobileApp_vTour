@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <button ion-button menuToggle>
+         <ion-icon name="menu"></ion-icon>
+     </button>
+     <ion-title>Itineraries</ion-title>
+   </ion-navbar>
+ </ion-header>
+ 
+ <ion-footer>
+     <ion-navbar color="danger">
+       <ion-title></ion-title>
+     </ion-navbar>
+ </ion-footer>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-card *ngFor="let tagent of items">
+      <ion-item>
+      <ion-avatar item-start>
+      </ion-avatar>
+      <h2>{{ tagent.name }}</h2>
+    </ion-item>
+    <ion-card-content>
+      <p>Travel Agent : {{tagent.name}}<br>Note : {{tagent.note}}<br>Last Updated : {{tagent.date_time}}</p>
+      <ion-card *ngFor="let event of tagent.events; let i = index">
+        <h5 class="card-title" id="contentToConvert2">{{i+1}}. {{event.name}} </h5>
+        </ion-card>
+      
+      </ion-card-content>
+    
+      <ion-buttons end>
+        <button ion-button icon-only color="red" (click)="deleteRecord(tagent)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-card>
+    
+  </ion-list>
+</ion-content>

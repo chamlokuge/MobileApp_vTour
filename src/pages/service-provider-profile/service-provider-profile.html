@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <!-- <button ion-button menuToggle>
+         <ion-icon name="menu"></ion-icon>
+     </button> -->
+     <ion-title>{{this.sp.fname}}</ion-title>
+     <ion-buttons end>
+        <button ion-button outline (click)="updateRecord(sp)">
+            Edit
+          </button>
+        <button  ion-button outline  (click)="logoutmenu()"> 
+            logout
+        </button>
+        
+    </ion-buttons> 
+   </ion-navbar>
+ </ion-header>
+ 
+ <ion-footer>
+     <ion-navbar color="danger">
+       <ion-title></ion-title>
+     </ion-navbar>
+ </ion-footer>
+
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{this.sp.fname}} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Email : {{this.sp.email}}<br>
+      Telehpone : {{this.sp.telephone}}<br>
+      Address : {{this.sp.address}}<br>
+      Type : {{this.sp.type}}<br>
+      Description : {{this.sp.discription}}<br>
+    </ion-card-content>
+  </ion-card>
+  
+
+  <ion-item *ngFor="let pkg of items">
+    <ion-item *ngIf="this.sp._id==pkg.spid">
+      <ion-avatar item-start>
+      </ion-avatar>
+      <h2>{{ pkg.name }}</h2>
+      <p>Type : {{pkg.type}}<br>Availability : {{pkg.availability}}<br>Price : {{pkg.price}}<br>Description :
+        {{pkg.discription}}</p>
+      <ion-buttons end>
+        <button ion-button icon-only color="red" (click)="deleteRecord(pkg)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+        <button ion-button icon-only color="energized" (click)="updatePackage(pkg)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-item>
+  </ion-item>
+  <button ion-button full item-end icon-start color="danger" (click)="addNewPackage(sp)">
+    <ion-icon name="add"></ion-icon>
+    Add New Package
+  </button>
+</ion-content>

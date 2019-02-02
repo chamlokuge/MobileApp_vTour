@@ -1,0 +1,20 @@
+page-home {
+    .login-content{ 
+       // background-color: rgb(233, 227, 227); 
+        background-image: url('http://sevenzsolutions.com/q/img/background.jpeg');   
+      }
+       .card{
+        
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 7px ;
+       }
+    #lable{
+        border-radius: 7px ;
+      
+        background-color: rgba(255, 255, 255, 0.8); 
+    }
+
+    .submit-btn{
+        border-radius: 20px ;
+    }
+}

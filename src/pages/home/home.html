@@ -1,0 +1,63 @@
+<ion-content class="login-content" padding>
+  
+  <ion-card >
+     <img src="http://sevenzsolutions.com/q/img/vtour.png" style="display:block;width:60%;height:auto;margin-left:auto;margin-right:auto;" />
+
+    <div class="login-box">
+      <form [formGroup]="form" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+
+        <ion-grid style="height: 100%">  
+          <ion-row justify-content-center align-items-center style="height: 100%">
+            <ion-col>
+              <ion-list inset>
+                <ion-item id="lable">
+                  <ion-label floating >
+                    Email
+                  </ion-label>
+                  <ion-input type="text" placeholder="" name="email" [(ngModel)]="email" formControlName="email" required></ion-input>
+                </ion-item>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.email"  >
+                      <div class="error-message" *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)" style="color:red">  
+                    {{ validation.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+
+              </ion-list>
+           
+              <ion-list inset>
+                <ion-item id="lable">
+                  <ion-label floating >
+                    Password
+                  </ion-label>
+                  <ion-input type="password" placeholder="" name="password" [(ngModel)]="password" formControlName="password" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+
+
+          <ion-row>
+            <ion-col class="signup-col">
+              <button ion-button shape="round" color="danger" class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">
+                Login
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+
+    <div text-center>
+      <button ion-button clear color="grey" class="submit-btn" (click)="ForgotPassword()">
+        Forgot Password
+      </button>
+    </div>
+    
+  </ion-card>
+
+  
+
+</ion-content>
